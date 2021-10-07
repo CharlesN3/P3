@@ -15,6 +15,7 @@ import java.util.Map;
 public class KanbanBoard {
 
   Map<String, KanbanCard> KB = new HashMap<>();
+  ArrayList<KanbanCard> KL = new ArrayList<KanbanCard>();
 
   private void addCard(KanbanCard card) {
 
@@ -28,13 +29,24 @@ public class KanbanBoard {
       KanbanCard card = Board.get(index);
       String uid = card.getUid();
       KB.put(uid, card);
+      KL.add(card);
       index++;
     }
   }
 
-  private List searchState() {
+  private List searchState(String stateSearch) {
     ArrayList StateList = new ArrayList();
 
+    int index = 0;
+    KanbanCard card = KL.get(index);
+    String state = card.getState();
+
+    while (index <= KL.size()) {
+      if (state.equalsIgnoreCase(stateSearch) == true) {
+        StateList.add(card);
+      }
+      index++;
+    }
     return StateList;
   }
 }

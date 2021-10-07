@@ -15,6 +15,7 @@ public class KanbanCard {
   private String name;
   private String uid;
   private String state;
+
   private String createDate;
   private String beginDate;
   private String endDate;
@@ -45,6 +46,14 @@ public class KanbanCard {
    */
   public String getUid() {
     return uid;
+  }
+  /**
+   * get the state of the task
+   *
+   * @return String representing state of task
+   */
+  public String getState() {
+    return state;
   }
   /**
    * get the name of the task
